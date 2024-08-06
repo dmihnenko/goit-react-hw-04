@@ -1,0 +1,10 @@
+.errorMessage {
+  display: flex;
+
+  justify-content: center;
+  color: #e46e7d;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 50px;
+  align-items: center;
+}

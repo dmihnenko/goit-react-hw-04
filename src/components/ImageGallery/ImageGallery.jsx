@@ -3,9 +3,9 @@ import css from "../ImageGallery/ImageGallery.module.css";
 
 export default function ImageGallery({ data, onImageClick }) {
   return (
-    <div className={css.images}>
+    <ul className={css.images}>
       {data.map((image) => (
-        <div key={image.id}>
+        <li key={image.id}>
           <ImageCard
             key={image.id}
             imageThumbSrc={image.urls.small}
@@ -13,8 +13,8 @@ export default function ImageGallery({ data, onImageClick }) {
             altText={image.alt_description}
             onImageClick={onImageClick}
           />
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

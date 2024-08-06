@@ -4,8 +4,9 @@ import { fetchImages } from "./API/GalleryList-api";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBts";
 import toast, { Toaster } from "react-hot-toast";
-
+import BarLoader from "react-spinners/BarLoader";
 import ImageModal from "./components/ImageModal/ImageModal";
+import ErrorMessage from "./components/ErrorMassage/ErrorMassage";
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -61,17 +62,22 @@ export default function App() {
   return (
     <div>
       <SearchBar onSubmit={handleSearch} />
-      {loading && <p>Loading Page</p>}
-      {error && <p>Error, please reaload page</p>}
+      {error && (
+        <ErrorMessage message="Oops! There is something wrong, please reload the page." />
+      )}
       {images.length > 0 && (
         <ImageGallery data={images} onImageClick={handleImageModal} />
       )}
-      {topic !== "" && <LoadMoreBtn onClick={handleLoadMore} />}
+      {loading && <BarLoader color="#0528e3" height={10} />}
+      {topic !== "" && !error && !loading && (
+        <LoadMoreBtn onClick={handleLoadMore} />
+      )}
       <ImageModal
         isModalOpen={modalIsOpen}
         modalData={modalData}
         onModalClose={handleModalClose}
       />
+
       <Toaster />
     </div>
   );

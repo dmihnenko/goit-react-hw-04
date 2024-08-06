@@ -71,7 +71,6 @@ export default function App() {
         isModalOpen={modalIsOpen}
         modalData={modalData}
         onModalClose={handleModalClose}
-        appElement={document.getElementById("app")}
       />
       <Toaster />
     </div>

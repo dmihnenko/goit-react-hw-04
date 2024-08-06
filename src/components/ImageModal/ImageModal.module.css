@@ -41,15 +41,3 @@
   object-fit: cover;
   display: block;
 }
-.imageModal__info {
-  display: flex;
-  gap: 8px;
-  padding: 16px;
-  justify-content: space-between;
-}
-.imageModal__author {
-  font-style: italic;
-}
-.imageModal__likes {
-  font-family: monospace;
-}

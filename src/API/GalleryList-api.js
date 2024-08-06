@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.unsplash.com/photos";
+axios.defaults.baseURL = "https://api.unsplash.com";
 
 // const IMAGES_PER_PAGE = 20;
 // const cliendID = "FeJntHpVk8b2eiywJebMXpibVIevLqbL59ieFO4Ib0U";
@@ -11,7 +11,7 @@ axios.defaults.baseURL = "https://api.unsplash.com/photos";
 //   );
 
 export const fetchImages = async (topic, currentPage) => {
-  const res = await axios.get("", {
+  const res = await axios.get("/search/photos", {
     params: {
       query: topic,
       page: currentPage,
@@ -20,5 +20,5 @@ export const fetchImages = async (topic, currentPage) => {
     },
   });
 
-  return res.data;
+  return res.data.results;
 };
